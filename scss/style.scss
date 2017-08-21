@@ -1,0 +1,282 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');
+
+$main:        #34314c;
+$secondary:   #9592ad;
+$border:      #d9dee9;
+$white:       #ffffff;
+$highlight_1: #fd7473;
+$highlight_2: #fec951;
+$highlight_3: #47b8e0;
+$highlight_4: #9f68d0;
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    padding-bottom: 5em;
+}
+
+.border {
+    height: 6px;
+    border: 0;
+    background-color: $highlight_1;
+    background-image: 
+        linear-gradient(
+            to right,
+            $highlight_1,
+            $highlight_1 25%,
+            $highlight_2 25%,
+            $highlight_2 50%,
+            $highlight_3 50%,
+            $highlight_3 75%,
+            $highlight_4 75%,
+            $highlight_4 100%,
+            $highlight_4 100%
+        );
+    background-size: 50% 100%;
+}
+
+.wrapper {
+    width: 750px;
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+.clearfix:before, .clearfix:after {
+    content: " ";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.main_header {
+    margin: 5em 0 3em 0;
+}
+
+.logo {
+    img {
+        width: 70px;
+        float: left;
+    }
+    h1 {
+        float: left;
+        margin: 0 0 0 1em;
+        text-transform: uppercase;
+        font-size: 1.35em;
+        padding-top: 1.1em;
+        color: $main;
+        span {
+            font-weight: 400;
+        }
+    }
+}
+
+.nav {
+    float: right;
+    padding-top: 1.75em;
+    a {
+        color: $secondary;
+        margin-left: 1em;
+        text-decoration: none;
+    }
+}
+
+.current {
+    font-weight: 700;
+    color: $main;   
+}
+
+#timeline {
+    width: 100%;
+    position: relative;
+    list-style: none;
+    padding: 0;
+    &:after {
+        content: " ";
+        width: 1px;
+        background: 1px $border;
+        height: 90%;
+        position: absolute;
+        top: 4em;
+        left: 3em;
+        z-index: 0;
+    }
+    a {
+        text-decoration: none;
+    }
+    .listing {
+        background: $white;
+        border: 1px solid $border;
+        border-radius: .3em;
+        padding: 1em;
+        margin-bottom: 1em;
+        position: relative;
+        z-index: 1;
+        display: table;
+        width: 96%;
+        img, .info, .job_type {
+            display: table-cell;
+            vertical-align: middle;
+            font-size: .9em;
+            color: $secondary;
+        }
+        .image_wrapper {
+            width: 60px;
+            img {
+                width: 60px;
+                display: block;
+                margin: 0 auto;
+                border-radius: .25em;
+            }
+        }
+        .info {
+            line-height: 1.5;
+            width: 640px;
+            padding-left: 25px;
+            .job_title {
+                font-weight: 700;
+                color: $main;
+                font-size: 1.5em;
+            }
+            .job_info {
+                color: $secondary;
+                display: block;
+                span {
+                    margin: 0 .75em;
+                }
+            }
+        }
+        .job_type {
+            text-transform: uppercase;
+            font-weight: 700;
+            font-size: .75em;
+            position: relative;
+            white-space: nowrap;
+            padding-top: .6em;
+            width: 100px;
+            &:before {
+                content: " ";
+                background: $highlight_1;
+                width: 10px;
+                height: 10px;
+                border-radius: 100%;
+                position: absolute;
+                left: -20px;
+                top: 28px;
+            }
+        }
+        .full_time {
+            color: $highlight_1;
+            &:before {
+                background: $highlight_1;
+            }
+        }
+        .part_time {
+            color: $highlight_2;
+            &:before {
+                background: $highlight_2;
+            }
+        }
+        .freelance {
+            color: $highlight_3;
+            &:before {
+                background: $highlight_3;
+            }
+        }
+        .contract {
+            color: $highlight_4;
+            &:before {
+                background: $highlight_4;
+            }
+        }
+        transition: all .3s ease-in-out;
+        &:hover {
+            cursor: pointer;
+            box-shadow: 0px 2px 40px 0 rgba(0, 0, 0, 0.1)
+        }
+    }
+    .date {
+        display: inline-block;
+        padding: 1em 0;
+        width: 100px;
+        background: $white;
+        border: 1px solid $border;
+        border-radius: 3em;
+        font-weight: 700;
+        font-size: .75em;
+        text-align: center;
+        z-index: 2;
+        position: relative;
+        margin: 1em 0 2em 0; 
+    }
+}
+
+.load_more {
+    text-align: center;
+    .button {
+        border: 2px solid $highlight_4;
+        outline: none;
+        padding: 1em 3.5em;
+        text-align: center;
+        background: transparent;
+        border-radius: 3em;
+        color: $highlight_4;
+        transition: all .3s ease-in-out;
+        cursor: pointer;
+        &:hover {
+            border: 2px solid $main;
+            color: $main;
+        }
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .main_header {
+        margin: 3em 0;
+    }
+    
+    .logo {
+        display: block;
+        margin: 0 auto;
+        text-align: center;
+        img {
+            float: none;
+        }
+        h1 {
+            float: none;
+            margin: 0;
+            font-size: 1.1em;
+        }
+    }
+    
+    .nav {
+        float: none;
+        text-align: center;
+        a {
+            margin: 0 .5em;
+        }
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    #timeline {
+        .listing {
+            .image_wrapper {
+                margin-right: 1em;
+                img {
+                    width: 50px;
+                }
+            }
+            .info {
+                width: 100%;
+                padding: .4em 0 0 0;
+                .job_title {
+                    font-size: 1.25em;
+                }
+            }
+            .job_type {
+                display: none;
+            }
+        }
+    }
+}
